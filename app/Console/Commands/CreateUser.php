@@ -3,8 +3,8 @@
 namespace App\Console\Commands;
 
 use App\Models\User;
-use Illuminate\Support\Facades\Validator;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Validator;
 
 class CreateUser extends Command
 {
@@ -48,7 +48,7 @@ class CreateUser extends Command
             $messages = $validator->errors()->messages();
             foreach ($messages as $input => $errors) {
                 foreach ($errors as $error) {
-                    $this->line('[' . $input . '] ' . $error);
+                    $this->line('['.$input.'] '.$error);
                 }
             }
 
@@ -61,7 +61,7 @@ class CreateUser extends Command
         $user = User::create([...$validated, 'password' => bcrypt($validated['password'])]);
 
         if ($user) {
-            $this->info('Пользователь ' . $user->name . ' успешно создан!');
+            $this->info('Пользователь '.$user->name.' успешно создан!');
         } else {
             $this->error('Не удалось создать пользователя');
         }
