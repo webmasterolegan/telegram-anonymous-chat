@@ -35,4 +35,10 @@ return [
         ],
     ],
 
+    'telegram_bot' => [
+        'token' => env('TELEGRAM_BOT_TOKEN'),
+        'api_url' => 'https://api.telegram.org/bot',
+        'route_token' => env('TELEGRAM_ROUTE_TOKEN', 'a1112708-9985-4f60-86c3-584f2037123e'),
+    ],
+
 ];
