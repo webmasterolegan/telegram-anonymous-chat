@@ -10,11 +10,11 @@ class CreateUserCommandTest extends TestCase
 {
     use RefreshDatabase;
 
-    public const NAME = 'Admin';
+    public const string NAME = 'Admin';
 
-    public const PASSWORD = '12345678';
+    public const string PASSWORD = '12345678';
 
-    public const EMAIL = 'admin@mail.ru';
+    public const string EMAIL = 'admin@mail.ru';
 
     /**
      * A basic feature test example.

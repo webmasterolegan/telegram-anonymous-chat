@@ -16,7 +16,7 @@ return new class extends Migration
     {
         Schema::create('messages', function (Blueprint $table) {
             $table->id();
-            $table->enum('direction', MessageDirectionEnum::getAllValues())
+            $table->unsignedTinyInteger('direction')
                 ->default(MessageDirectionEnum::INCOMING->value)
                 ->comment('Тип сообщения, входящие или исходящее');
             $table->foreignIdFor(Contact::class)

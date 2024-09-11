@@ -23,6 +23,7 @@ class Message extends Model
         'contact_id',
         'user_id',
         'text',
+        'direction',
     ];
 
     /**
@@ -43,5 +44,13 @@ class Message extends Model
     public function contact(): BelongsTo
     {
         return $this->belongsTo(Contact::class);
+    }
+
+    /**
+     * Пользователь отправитель сообщений (только у исходящих сообщений)
+     */
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
     }
 }

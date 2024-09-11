@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Requests\TelegramBotWebhook;
 use App\Models\Contact;
 use App\Models\Message;
+use Illuminate\Http\Response;
 
 /**
  * Обработка Telegram webhooks
@@ -12,9 +13,9 @@ use App\Models\Message;
 class TelegramWebhook
 {
     /**
-     * Handle the incoming request.
+     * Получение входящих сообщений из Telegram webhooks
      */
-    public function __invoke(TelegramBotWebhook $request)
+    public function __invoke(TelegramBotWebhook $request): Response
     {
         $webhookData = $request->validated();
 
