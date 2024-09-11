@@ -25,7 +25,7 @@ class CreateUser extends Command
     /**
      * Execute the console command.
      */
-    public function handle()
+    public function handle(): void
     {
         // Получение ввода и дозапрос недостающих аргументов
         $inputs = [
@@ -38,7 +38,7 @@ class CreateUser extends Command
         $validator = Validator::make($inputs, [
             'name' => 'required|string|max:255',
             'email' => 'required|unique:users|email',
-            'password' => 'required|string|min:8|max:32',
+            'password' => User::PASSWORD_RULE,
         ]);
 
         // Вывод ошибок валидации, если обнаружены
